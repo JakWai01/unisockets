@@ -64,6 +64,44 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<a href="#unisockets" id="unisockets" style="color: inherit; text-decoration: none;">
+					<h1>unisockets</h1>
+				</a>
+				<p>A universal Berkeley sockets implementation for both WebAssembly (based on WebRTC) and native platforms with bindings for C, Go and TinyGo.</p>
+				<p><img src="https://github.com/pojntfx/unisockets/workflows/Yarn%20CI/badge.svg" alt="Yarn CI">
+					<img src="https://github.com/pojntfx/unisockets/workflows/make%20CI/badge.svg" alt="make CI">
+					<img src="https://github.com/pojntfx/unisockets/workflows/Mirror/badge.svg" alt="Mirror">
+					<a href="https://pojntfx.github.io/unisockets/"><img src="https://img.shields.io/badge/TypeScript-Documentation-informational" alt="TypeDoc"></a>
+				<a href="https://pkg.go.dev/github.com/pojntfx/unisockets"><img src="https://pkg.go.dev/badge/github.com/pojntfx/unisockets" alt="PkgGoDev"></a></p>
+				<a href="#overview" id="overview" style="color: inherit; text-decoration: none;">
+					<h2>Overview</h2>
+				</a>
+				<p>unisockets implements the <a href="https://en.wikipedia.org/wiki/Berkeley_sockets">Berkeley sockets API</a>. On a native environment like Linux, it falls back to the native Berkeley sockets API; on WASM it uses <a href="https://webrtc.org/">WebRTC</a> for fast peer-to-peer communication instead of the (non-available) native API. This allows you to &quot;just recompile&quot; an existing socket server/client (such as a web server etc.) and run it natively, in a WebAssembly runtime or in the browser, without the need for a <a href="https://emscripten.org/docs/porting/networking.html">WebSocket proxy like in emscripen</a> or some other proxy mechanism. You&#39;ve heard that right, this library allows you to <code>bind</code> in the browser!</p>
+				<a href="#components" id="components" style="color: inherit; text-decoration: none;">
+					<h3>Components</h3>
+				</a>
+				<p><img src="https://pojntfx.github.io/unisockets/media/diagram.svg" alt="UML Diagram"></p>
+				<p>The system is made up of the following components:</p>
+				<ul>
+					<li><strong>Signaling</strong>: A WebRTC signaling server, client and protocol has been implemented to allow for nodes to discover each other and exchange candidates, but is not involved in any actual connections. When compiling natively, it is not required.</li>
+					<li><strong>Transport</strong>: A minimal wrapper around the WebRTC API. When compiling to WASM, this component manages all actual data transfers and handles incoming/outgoing peer to peer connections. When compiling natively, it is not required.</li>
+					<li><strong>Sockets</strong>: A set of WebAssembly imports that satisfy the basic API of the Berkeley sockets, such as <code>socket</code>, <code>bind</code>, <code>listen, </code>accept<code>, </code>connect<code>, </code>send<code>, </code>recv` etc. When compiling natively, it falls back to the native implementation.</li>
+				</ul>
+				<p>These components have no hard dependencies on one another, and can be used independenly.</p>
+				<p>Additionally, a <a href="https://github.com/pojntfx/unisockets/blob/main/cmd/c_echo_client/berkeley_sockets.h">universal C/C++ header</a> for easy usage and Go/TinyGo bindings (See <a href="https://pkg.go.dev/github.com/pojntfx/unisockets/pkg/unisockets"><img src="https://pkg.go.dev/badge/github.com/pojntfx/unisockets/pkg/unisockets" alt="PkgGoDev"></a>) have been created.</p>
+				<a href="#further-resources" id="further-resources" style="color: inherit; text-decoration: none;">
+					<h3>Further Resources</h3>
+				</a>
+				<p>Interested in an implementation of the <a href="https://golang.org/pkg/net/">Go <code>net</code> package</a> based on this package, with TinyGo and WASM support? You might be interested in <a href="https://github.com/pojntfx/tinynet">tinynet</a>!</p>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>Check out <a href="https://pkg.go.dev/github.com/pojntfx/unisockets"><img src="https://pkg.go.dev/badge/github.com/pojntfx/unisockets" alt="PkgGoDev"></a> for API documentation. Many examples on how to use it (C, TinyGo &amp; Go clients &amp; servers plus an example WebAssembly runner) can also be found in <a href="https://github.com/pojntfx/unisockets/blob/main/cmd">the <code>cmd</code> folder</a>. Looking for advice on how to build and run natively and using WASM? Check out the <a href="https://github.com/pojntfx/unisockets/blob/main/Makefile"><code>Makefile</code></a>!</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>unisockets (c) 2020 Felix Pojtinger</p>
+				<p>SPDX-License-Identifier: AGPL-3.0</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
