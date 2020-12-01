@@ -85,10 +85,10 @@
 				<ul>
 					<li><strong>Signaling</strong>: A WebRTC signaling server, client and protocol has been implemented to allow for nodes to discover each other and exchange candidates, but is not involved in any actual connections. When compiling natively, it is not required.</li>
 					<li><strong>Transport</strong>: A minimal wrapper around the WebRTC API. When compiling to WASM, this component manages all actual data transfers and handles incoming/outgoing peer to peer connections. When compiling natively, it is not required.</li>
-					<li><strong>Sockets</strong>: A set of WebAssembly imports that satisfy the basic API of the Berkeley sockets, such as <code>socket</code>, <code>bind</code>, <code>listen, </code>accept<code>, </code>connect<code>, </code>send<code>, </code>recv` etc. When compiling natively, it falls back to the native implementation.</li>
+					<li><strong>Sockets</strong>: A set of WebAssembly imports that satisfy the basic API of the Berkeley sockets, such as <code>socket</code>, <code>bind</code>, <code>listen</code>, <code>accept</code>, <code>connect</code>, <code>send</code>, <code>recv</code> etc. When compiling natively, it falls back to the native implementation.</li>
 				</ul>
 				<p>These components have no hard dependencies on one another, and can be used independenly.</p>
-				<p>Additionally, a <a href="https://github.com/pojntfx/unisockets/blob/main/cmd/c_echo_client/berkeley_sockets.h">universal C/C++ header</a> for easy usage and Go/TinyGo bindings (See <a href="https://pkg.go.dev/github.com/pojntfx/unisockets/pkg/unisockets"><img src="https://pkg.go.dev/badge/github.com/pojntfx/unisockets/pkg/unisockets" alt="PkgGoDev"></a>) have been created.</p>
+				<p>Additionally, a <a href="https://github.com/pojntfx/unisockets/blob/main/cmd/c_echo_client/berkeley_sockets.h">universal C/C++ header</a> for easy usage and Go/TinyGo bindings (see <a href="https://pkg.go.dev/github.com/pojntfx/unisockets/pkg/unisockets"><img src="https://pkg.go.dev/badge/github.com/pojntfx/unisockets/pkg/unisockets" alt="PkgGoDev"></a>) have been created.</p>
 				<a href="#further-resources" id="further-resources" style="color: inherit; text-decoration: none;">
 					<h3>Further Resources</h3>
 				</a>
@@ -96,7 +96,7 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
-				<p>Check out <a href="https://pkg.go.dev/github.com/pojntfx/unisockets"><img src="https://pkg.go.dev/badge/github.com/pojntfx/unisockets" alt="PkgGoDev"></a> for API documentation. Many examples on how to use it (C, TinyGo &amp; Go clients &amp; servers plus an example WebAssembly runner) can also be found in <a href="https://github.com/pojntfx/unisockets/blob/main/cmd">the <code>cmd</code> folder</a>. Looking for advice on how to build and run natively and using WASM? Check out the <a href="https://github.com/pojntfx/unisockets/blob/main/Makefile"><code>Makefile</code></a>!</p>
+				<p>Check out the <a href="https://github.com/pojntfx/unisockets/blob/main/cmd/c_echo_client/berkeley_sockets.h">universal C/C++ header</a> for the C API docs or <a href="https://pkg.go.dev/github.com/pojntfx/unisockets"><img src="https://pkg.go.dev/badge/github.com/pojntfx/unisockets" alt="PkgGoDev"></a> for the Go/TinyGo API. Many examples on how to use it (C, TinyGo &amp; Go clients &amp; servers plus an example WebAssembly runner) can also be found in <a href="https://github.com/pojntfx/unisockets/blob/main/cmd">the <code>cmd</code> folder</a>. Looking for advice on how to build and run natively or using WASM? Check out the <a href="https://github.com/pojntfx/unisockets/blob/main/Makefile"><code>Makefile</code></a>!</p>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>
